@@ -22,7 +22,7 @@ int main(void){
 
         system("clear");
             
-        std::cout << "1. Добавить студента " << std::endl << "2. Показать всех " << std::endl << "3. Найти по имени " << std::endl << "4. Выход " << std::endl << "выберите - ";
+        std::cout << "1. add " << std::endl << "2. show everyone " << std::endl << "3. find by name " << std::endl << "4. exit " << std::endl << "choose - ";
         std::cin >> choose;
 
         if(choose == 1){
@@ -31,9 +31,9 @@ int main(void){
             
             std::ofstream outFile("students_manage.txt", std::ios::app);
 
-            std::cout << "имя - "; std::cin >> student.name;
-            std::cout << "возраст - "; std::cin >> student.age;
-            std::cout << "средний балл - "; std::cin >> student.gra;
+            std::cout << "name - "; std::cin >> student.name;
+            std::cout << "age - "; std::cin >> student.age;
+            std::cout << "gpa - "; std::cin >> student.gra;
 
             outFile << student.name << " " << student.age << " " << student.gra << std::endl;
 
@@ -60,7 +60,7 @@ int main(void){
             system("clear");
             
             std::string searchword;
-            std::cout << "введите имя для поиска студента : ";
+            std::cout << "Enter a name to search for a student : ";
             std::cin >> searchword;
 
             std::ifstream file("students_manage.txt");
@@ -71,14 +71,14 @@ int main(void){
 
                 if(line.find(searchword) != std::string::npos){
 
-                    std::cout << "такой студент есть в списке" << std::endl;
+                    std::cout << "such a student is on the list " << std::endl;
                     found = true;
                 }
             }
 
             if(!found){
 
-                std::cout << "такого студента" << std::endl;
+                std::cout << "there is no such student" << std::endl;
             } 
             file.close();
 
@@ -90,7 +90,7 @@ int main(void){
             
             system("clear");
 
-            std::cout << "неверный выбор" << std::endl;
+            std::cout << "wrong choice" << std::endl;
         }
     }    
     return 0;
